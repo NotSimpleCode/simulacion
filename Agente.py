@@ -334,7 +334,7 @@ class AgenteSepulturero(Agent):
             lista_otros_agentes = self.model.grid.get_cell_list_contents([celda])
             if len(lista_otros_agentes):
                 for agente in lista_otros_agentes:
-                    if agente.muerto and not agente.enterrado:
+                    if agente.muerto and not agente.enterrado and not agente.podrido:
                         celdasConAgentesMuertos.append(agente)
 
         # Si existe algun agente vecino al agente que se esta moviendo
