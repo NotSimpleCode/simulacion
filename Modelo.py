@@ -19,7 +19,9 @@ class ModeloAgentes(Model):
             {
                 "Agentes con vida": ModeloAgentes.agentes_vivos,
                 "Agentes Muertos": ModeloAgentes.agentes_muertos,
-                "Sanadores Vivos": ModeloAgentes.agentes_curanderos
+                "Sanadores Vivos": ModeloAgentes.agentes_curanderos,
+                "Enterrados" : ModeloAgentes.agentes_enterrados,
+                "Podridos" : ModeloAgentes.agentes_podridos
             }
         )
 
@@ -90,3 +92,27 @@ class ModeloAgentes(Model):
             int: Numero de agentes que perdieron la batalla en el campo
         """
         return sum([1 for agente in model.esquema.agents if agente.muerto])
+    
+    @staticmethod
+    def agentes_enterrados(model) -> int:
+        """Calcula el total de agentes que fueron enterrados
+
+        Parametros:
+            modelo (ModeloAgentes): El modelo de simulacion definido
+
+        Retorna:
+            int: Numero de agentes que fueron enterrados RIP
+        """
+        return sum([1 for agente in model.esquema.agents if agente.enterrado])
+    
+    @staticmethod
+    def agentes_podridos(model) -> int:
+        """Calcula el total de luchadores que se pudrieron en batalla al no ser sepultados
+
+        Parametros:
+            modelo (ModeloAgentes): El modelo de simulacion definido
+
+        Retorna:
+            int: Numero de agentes que esperaron tanto al sepulturero que se pudrieron
+        """
+        return sum([1 for agente in model.esquema.agents if agente.podrido])

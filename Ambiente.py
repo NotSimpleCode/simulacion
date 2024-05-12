@@ -124,9 +124,11 @@ grid = CanvasGrid(
 
 grafica_datos = ChartModule(
     [
-        {"Label": "Agentes con vida", "Color": "green"},
-        {"Label": "Agentes Muertos", "Color": "red"},
-        {"Label": "Sanadores Vivos", "Color": "gray"}
+        {"Label": "Agentes con vida",   "Color": "green"},
+        {"Label": "Agentes Muertos",    "Color": "red"},
+        {"Label": "Sanadores Vivos",    "Color": "orange"},
+        {"Label": "Enterrados",         "Color": "black"},
+        {"Label": "Podridos",           "Color": "brown"}
     ],
     canvas_height=300,
     data_collector_name="recolectorInformacion"
